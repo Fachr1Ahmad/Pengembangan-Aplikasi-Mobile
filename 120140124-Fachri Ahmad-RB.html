@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 : Penilaian terhadap Mahasiswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex min-h-screen items-center text-center justify-center">
+        <div class="relative">
+            <table class="w-full text-black-500 dark:text-black-400">
+                <thead class="bg-gray-50 dark:bg-gray-800 uppercase border-black-50">
+                    <tr>
+                        <th class="py-3 px-5 border border-gray-50">NO </th>
+                        <th class="py-3 px-5 border border-gray-50">NAMA </th>
+                        <th class="py-3 px-5 border border-gray-50">NIM </th>
+                        <th class="py-3 px-5 border border-gray-50">NILAI </th>
+                        <th class="py-3 px-5 border border-gray-50">GRADE </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var list = [
+                {
+                    "Name": "Boy",
+                    "NIM": 123,
+                    "Nilai": 60
+                },
+                {
+                    "Name": "Aldi",
+                    "NIM": 124,
+                    "Nilai": 70
+                },
+                {
+                    "Name": "Ade",
+                    "NIM": 125,
+                    "Nilai": 40
+                },
+                {
+                    "Name": "Fachri",
+                    "NIM": 127,
+                    "Nilai": 90
+                },
+                {
+                    "Name": "Ilham",
+                    "NIM": 128,
+                    "Nilai": 95
+                },
+                {
+                    "Name": "Yogi",
+                    "NIM": 129,
+                    "Nilai": 50
+                },
+                {
+                    "Name": "Ahmad",
+                    "NIM": 130,
+                    "Nilai": 40
+                },
+                {
+                    "Name": "Moku",
+                    "NIM": 131,
+                    "Nilai": 30
+                },
+                {
+                    "Name": "Mamat",
+                    "NIM": 132,
+                    "Nilai": 9
+                },
+                {
+                    "Name": "Randy",
+                    "NIM": 126,
+                    "Nilai": 90
+                },
+            ]
+        var tr;
+            var Grade;
+            for (var i = 0; i < list.length; i++) {
+                if (i % 2 == 1){
+                    tr = $('<tr/ class="bg-gray-800 text-gray-400 text-sm">');
+                }else{
+                    tr = $('<tr/ class="bg-gray-400 text-gray-800 text-sm">');
+                }
+                tr.append('<td scope="row" class="py-4 px-4 font-medium whitespace-nowrap">' + (i + 1) + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].Name + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].NIM + "</td>");
+                tr.append('<td class="py-4 px-6">' + list[i].Nilai + "</td>");
+                if (list[i].Nilai < 10) {
+                    Grade = "E";
+                }else if (list[i].Nilai >= 10 && list[i].Nilai < 40) {
+                    Grade = "D";
+                }else if (list[i].Nilai >= 40 && list[i].Nilai < 50) {
+                    Grade = "C";
+                }else if (list[i].Nilai >= 50 && list[i].Nilai < 60) {
+                    Grade = "BC";
+                }else if (list[i].Nilai >= 60 && list[i].Nilai < 70) {
+                    Grade = "B";
+                }else if (list[i].Nilai >= 70 && list[i].Nilai < 80) {
+                    Grade = "AB";
+                }else if (list[i].Nilai >= 80) {
+                    Grade = "A";
+                }else {
+                    Grade = null;
+                }
+                tr.append('<td class="py-4 px-6">' + Grade + "</td>");
+                $('table').first().append(tr);
+            }
+        });
+    </script>
+</body>
+</html>
